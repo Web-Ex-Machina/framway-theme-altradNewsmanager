@@ -543,17 +543,18 @@ app.FileUploader.prototype.setupForNewsManager = function(){
 		    fileUploader.$preview.find('.preview__item').remove();
 			var i = 1;
 			for(var file of this.files){
-				var valid = true;
-				console.log(i , fileUploader.maxFiles);
-				if (fileUploader.maxFiles && i > fileUploader.maxFiles){
-          			fileUploader.displayError('You can\'t upload more than '+fileUploader.maxFiles+' files.');
-					valid = false;
-				}
-				if (fileUploader.allowed && !fileUploader.allowed.includes(file.type.split('/')[1])){
-          			fileUploader.displayError('You can\'t upload a '+file.type.split('/')[1]+' file. Allowed extensions: '+fileUploader.allowed.join(', '));
-					valid = false;
-				}
-				if (valid) {
+				// var valid = true;
+				// console.log(i , fileUploader.maxFiles);
+				// if (fileUploader.maxFiles && i > fileUploader.maxFiles){
+          		// 	fileUploader.displayError('You can\'t upload more than '+fileUploader.maxFiles+' files.');
+				// 	valid = false;
+				// }
+				// if (fileUploader.allowed && !fileUploader.allowed.includes(file.type.split('/')[1])){
+          		// 	fileUploader.displayError('You can\'t upload a '+file.type.split('/')[1]+' file. Allowed extensions: '+fileUploader.allowed.join(', '));
+				// 	valid = false;
+				// }
+				// if (valid) {
+				if (fileUploader.isValid(file) === true){
 					if (fileUploader.mode == "custom") 
 						fileUploader.uploadFileThenSavePath(file);
 				}
