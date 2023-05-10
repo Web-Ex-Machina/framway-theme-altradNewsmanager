@@ -322,8 +322,9 @@ app.setupSections = function(){
 	$('body').on('click','.wem_nm__actions .step',function(e){
 		// console.log('here',this);
 		var checkStep = utils.checkForm('.wem_nm__section[data-step="'+$content.find('.wem_nm__section.active').attr('data-step')+'"]');
-    	$('.ck-editor__editable').each(function(){
-    		this.ckeditorInstance.updateSourceElement();
+    	$('.ck-editor__editable').each(function(){ // if necessary, add .not('.ck-editor__nested-editable') to the selector
+    		if (this.ckeditorInstance !== undefined)
+    			this.ckeditorInstance.updateSourceElement();
     	});
 		if($(this).attr('data-dir') != 'prev'){
 			if(checkStep.valid)
