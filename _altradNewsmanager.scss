@@ -352,8 +352,9 @@ i[class*="pellet"]{width: 10px; height: 10px; border-radius: 10px;background: $p
 
 
 .icon--wrapper{position:relative;
-  i{display: none;}
-  svg{ position: absolute; top: 50%; transform: translateY(-50%); right: 0.35em; font-size: 1.2em; pointer-events: none;}
+  >i{display: none;}
+  >svg{ position: absolute; top: 50%; transform: translateY(-50%); right: 0.35em; font-size: 1.2em; pointer-events: none; background: input(background);}
+  .input-group.form-shrink+svg{right: 2.35em;}
 }
 
 textarea.tinymce{display: none;}
