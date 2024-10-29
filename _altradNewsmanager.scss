@@ -226,12 +226,22 @@ i[class*="pellet"]{width: 10px; height: 10px; border-radius: 10px;background: $p
   	@extend .btn;
 	padding: .4em 1.5em .5em;
 	border-radius: 100px;
-	border: 1px solid color(greystronger);
 	background-color: transparent;
 	color: color(greystronger);
+  --btn-background: transparent;
+  --btn-font-color: #{color(greystronger)};
+  --btn-border-color: var(--btn-font-color);
+  --btn-border-size: 1px;
 	&.active,
-	&:hover{color: $primary; border-color: $primary; text-decoration: none;background-color: transparent;}
-	&:focus{border: 1px solid color(greystronger); background-color: transparent; color: color(greystronger);}
+	&:hover{
+    text-decoration: none;
+    // background-color: transparent; color: $primary; border-color: $primary;
+    --btn-font-color: #{$primary};
+  }
+	&:focus{
+    // border: 1px solid color(greystronger); background-color: transparent; color: color(greystronger);
+    --btn-font-color: #{color(greystronger)};
+  }
 
 	&[class*="icon-"]{ padding-left: 1.5em; padding-right: 1.5em; }
 	&.icon-first{
@@ -247,7 +257,10 @@ i[class*="pellet"]{width: 10px; height: 10px; border-radius: 10px;background: $p
 .btn-flag,
 .btn-icon{@extend %btn-nm;}
 .btn-icon{padding: 0; width: 40px !important; height: 40px; line-height: 36px; text-align: center;}
-.btn-flag{padding: 0; width: auto; height: 40px; line-height: 36px; text-align: center; text-transform: none; opacity: 0.6; transition: opacity 0.4s; border-color: color(greystronger); color: color(greystronger);
+.btn-flag{padding: 0; width: auto; height: 40px; line-height: 36px; text-align: center; text-transform: none; opacity: 0.6; transition: opacity 0.4s; 
+  // border-color: color(greystronger); color: color(greystronger);
+  --btn-font-color: #{color(greystronger)};
+  --btn-border-color: var(--btn-font-color);
 	&.active{pointer-events: none;}
     &:hover, &.active{opacity: 1; }
     span.img{ display: block; float: left; height: 40px; margin: -1px; border-radius: 100px; width: 40px; overflow: hidden; position: relative;
@@ -379,6 +392,7 @@ textarea.tinymce{display: none;}
 .wem_nm__actions{
   // display: flex; justify-content: flex-end; align-items: center;
   text-align: right;
+  button{@extend %btn;}
 }
 
 // TINYMCE
