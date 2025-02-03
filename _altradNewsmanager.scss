@@ -410,7 +410,7 @@ textarea.tinymce{display: none;}
 // VISUAL BUILDER
 .wem_nm__vb{background: rgba($primary,0.2); @extend .d-grid,.cols-1;gap: 1rem; padding: 1rem;}
 .wem_nm__vb__item{ background: body(background); padding: 1rem; 
-  &.empty{ color: rgba($primary,0.3); font-size: 65px; line-height: 1.5; display: flex; justify-content: center; align-items: center; border: 5px dashed rgba($primary,0.3); cursor: pointer; transition: all 0.4s; opacity: 0.8;
+  &.empty{ color: rgba($primary,0.3); font-size: 65px; line-height: 1.5; display: flex !important; justify-content: center; align-items: center; border: 5px dashed rgba($primary,0.3); cursor: pointer; transition: all 0.4s; opacity: 0.8;
     &:after{content:"+"; font-family: monospace; display: block;}
     &:hover{opacity: 1;}
   }
@@ -432,6 +432,7 @@ textarea.tinymce{display: none;}
     }
     & .wem_nm__vb__item{background: rgba($primary,0.05);border: 5px dashed rgba($primary,0.3);}
     &>div:not(.empty){grid-column: 1 / -1;}
+    &>.wem_nm__vb__item.empty{display: flex !important;}
   }
 
   &.placeholder{@extend .empty;}
